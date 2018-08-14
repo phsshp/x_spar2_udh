@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>peter.smith</sys_created_by>
+        <sys_created_on>2018-08-14 22:24:14</sys_created_on>
+        <sys_id>e37aefe7db735b00d89b596e5e9619c5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_spar2_udh_dependent_table.x_spar2_udh.user</sys_name>
+        <sys_package display_value="Update Helper" source="x_spar2_udh">9ba11e67dbbf1b00d89b596e5e961983</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Update Helper">9ba11e67dbbf1b00d89b596e5e961983</sys_scope>
+        <sys_security_acl display_value="x_spar2_udh_dependent_table">2fc732e3dbf35fc024c9dfea5e96190d</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_e37aefe7db735b00d89b596e5e9619c5</sys_update_name>
+        <sys_updated_by>peter.smith</sys_updated_by>
+        <sys_updated_on>2018-08-14 22:24:14</sys_updated_on>
+        <sys_user_role display_value="x_spar2_udh.user" name="x_spar2_udh.user">7dfd662fdbb35fc024c9dfea5e961961</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>

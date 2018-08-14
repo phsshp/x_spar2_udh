@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_user_role">
+    <sys_user_role action="INSERT_OR_UPDATE">
+        <assignable_by display_value="x_spar2_udh.admin" name="x_spar2_udh.admin">c61ea62fdbb35fc024c9dfea5e96196b</assignable_by>
+        <can_delegate>true</can_delegate>
+        <description>An Update Help user can create and save update sets.  They cannot configure Dependent Records.  Only an admin can do that.</description>
+        <elevated_privilege>false</elevated_privilege>
+        <grantable>true</grantable>
+        <includes_roles/>
+        <name>x_spar2_udh.user</name>
+        <suffix>user</suffix>
+        <sys_class_name>sys_user_role</sys_class_name>
+        <sys_created_by>peter.smith</sys_created_by>
+        <sys_created_on>2018-08-14 17:59:43</sys_created_on>
+        <sys_id>7dfd662fdbb35fc024c9dfea5e961961</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x_spar2_udh.user</sys_name>
+        <sys_package display_value="Update Helper" source="x_spar2_udh">9ba11e67dbbf1b00d89b596e5e961983</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Update Helper">9ba11e67dbbf1b00d89b596e5e961983</sys_scope>
+        <sys_update_name>sys_user_role_7dfd662fdbb35fc024c9dfea5e961961</sys_update_name>
+        <sys_updated_by>peter.smith</sys_updated_by>
+        <sys_updated_on>2018-08-14 18:01:18</sys_updated_on>
+    </sys_user_role>
+</record_update>

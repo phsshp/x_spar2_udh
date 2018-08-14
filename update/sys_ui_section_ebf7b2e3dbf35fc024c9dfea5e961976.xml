@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_section caption="" section_id="ebf7b2e3dbf35fc024c9dfea5e961976" sys_domain="global" table="x_spar2_udh_save_plan" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>name</element>
+            <position>0</position>
+            <sys_created_by>peter.smith</sys_created_by>
+            <sys_created_on>2018-08-14 18:51:12</sys_created_on>
+            <sys_id>7ed9b267dbf35fc024c9dfea5e961991</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_spar2_udh_save_plan" sys_domain="global" view="Default view">ebf7b2e3dbf35fc024c9dfea5e961976</sys_ui_section>
+            <sys_updated_by>peter.smith</sys_updated_by>
+            <sys_updated_on>2018-08-14 18:51:12</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>table</element>
+            <position>1</position>
+            <sys_created_by>peter.smith</sys_created_by>
+            <sys_created_on>2018-08-14 18:51:12</sys_created_on>
+            <sys_id>fed9b267dbf35fc024c9dfea5e961991</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_spar2_udh_save_plan" sys_domain="global" view="Default view">ebf7b2e3dbf35fc024c9dfea5e961976</sys_ui_section>
+            <sys_updated_by>peter.smith</sys_updated_by>
+            <sys_updated_on>2018-08-14 18:51:12</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>2</position>
+            <sys_created_by>peter.smith</sys_created_by>
+            <sys_created_on>2018-08-14 18:51:12</sys_created_on>
+            <sys_id>72d9b267dbf35fc024c9dfea5e961992</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_spar2_udh_save_plan" sys_domain="global" view="Default view">ebf7b2e3dbf35fc024c9dfea5e961976</sys_ui_section>
+            <sys_updated_by>peter.smith</sys_updated_by>
+            <sys_updated_on>2018-08-14 18:51:12</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>active</element>
+            <position>3</position>
+            <sys_created_by>peter.smith</sys_created_by>
+            <sys_created_on>2018-08-14 18:51:12</sys_created_on>
+            <sys_id>f2d9b267dbf35fc024c9dfea5e961992</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_spar2_udh_save_plan" sys_domain="global" view="Default view">ebf7b2e3dbf35fc024c9dfea5e961976</sys_ui_section>
+            <sys_updated_by>peter.smith</sys_updated_by>
+            <sys_updated_on>2018-08-14 18:51:12</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>4</position>
+            <sys_created_by>peter.smith</sys_created_by>
+            <sys_created_on>2018-08-14 18:51:12</sys_created_on>
+            <sys_id>76d9b267dbf35fc024c9dfea5e961992</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_spar2_udh_save_plan" sys_domain="global" view="Default view">ebf7b2e3dbf35fc024c9dfea5e961976</sys_ui_section>
+            <sys_updated_by>peter.smith</sys_updated_by>
+            <sys_updated_on>2018-08-14 18:51:12</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>description</element>
+            <position>5</position>
+            <sys_created_by>peter.smith</sys_created_by>
+            <sys_created_on>2018-08-14 18:51:12</sys_created_on>
+            <sys_id>f6d9b267dbf35fc024c9dfea5e961992</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_spar2_udh_save_plan" sys_domain="global" view="Default view">ebf7b2e3dbf35fc024c9dfea5e961976</sys_ui_section>
+            <sys_updated_by>peter.smith</sys_updated_by>
+            <sys_updated_on>2018-08-14 18:51:12</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_spar2_udh_save_plan</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>peter.smith</sys_created_by>
+            <sys_created_on>2018-08-14 18:43:03</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ebf7b2e3dbf35fc024c9dfea5e961976</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_spar2_udh_save_plan</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Update Helper" source="x_spar2_udh">9ba11e67dbbf1b00d89b596e5e961983</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Update Helper">9ba11e67dbbf1b00d89b596e5e961983</sys_scope>
+            <sys_update_name>sys_ui_section_ebf7b2e3dbf35fc024c9dfea5e961976</sys_update_name>
+            <sys_updated_by>peter.smith</sys_updated_by>
+            <sys_updated_on>2018-08-14 18:43:03</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>
