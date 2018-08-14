@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script><![CDATA[var gdw = GlideDialogWindow.get();
+var focusButton = gdw.getPreference('defaultButton');
+if (focusButton == null)
+	focusButton = 'cancel_button';
+gel(focusButton).focus();
+
+function submitChanges(type) {
+	var name = gel('sys_update_set').value;
+	if (name == '' && type != 'cancel') {
+		alert(getMessage("Please select an update set."));
+		return false;
+	}
+	var c = gel('cancel_or_copy_move');
+	c.value = type;
+	return true;
+}]]></client_script>
+        <description/>
+        <direct>false</direct>
+        <endpoint>x_spar2_udh_x_spar2_udh_select_update_set.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+
+<g:ui_form>
+   <j:set var="jvar_selected_records" value="${RP.getWindowProperties().get('selected_records')}" />
+
+<table width="100%">
+   <input type="hidden" name="selected_records" id="selected_records" value="${jvar_selected_records}"/>
+   <input type="hidden" name="cancel_or_copy_move" id="cancel_or_copy_move" value=""/>
+
+<tr>
+   <td>${gs.getMessage("Update set:")}</td>
+   <td><g:ui_reference name="sys_update_set" table="sys_update_set"/></td> 
+</tr>
+<tr id="dialogbuttons">
+   <td colspan="2" align="right">
+   <input type="submit" id="copy" onclick="return submitChanges('save');" value="${gs.getMessage('Save')}" style="background-color: #777777; color: white; margin-right: 4px;font-weight: bold;"/>
+   <input type="submit" id="cancel" onclick="return submitChanges('cancel');" value ="${gs.getMessage('Cancel')}" style="background-color: #777777; color: white; margin-right: 4px;font-weight: bold;"/></td>
+</tr>
+</table>
+</g:ui_form>
+</j:jelly>]]></html>
+        <name>x_spar2_udh_select_update_set</name>
+        <processing_script><![CDATA[if (cancel_or_copy_move == "save") {
+    processSave();
+}
+
+var urlOnStack = GlideSession.get().getStack().bottom();
+response.sendRedirect(urlOnStack);
+
+function processSave() {
+	var updateXmlGR = new GlideRecord('sys_update_xml');
+	var sysIds  = selected_records.split(",");
+	var i = 0;
+	while (updateXmlGR.get(sysIds[i])) {
+		updateXmlGR.update_set = sys_update_set;
+		updateXmlGR.insert();
+		i++;
+	}
+}]]></processing_script>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>peter.smith</sys_created_by>
+        <sys_created_on>2018-08-14 16:26:26</sys_created_on>
+        <sys_id>c39752afdb735fc024c9dfea5e961922</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>x_spar2_udh_select_update_set</sys_name>
+        <sys_package display_value="Update Helper" source="x_spar2_udh">9ba11e67dbbf1b00d89b596e5e961983</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Update Helper">9ba11e67dbbf1b00d89b596e5e961983</sys_scope>
+        <sys_update_name>sys_ui_page_c39752afdb735fc024c9dfea5e961922</sys_update_name>
+        <sys_updated_by>peter.smith</sys_updated_by>
+        <sys_updated_on>2018-08-14 16:30:53</sys_updated_on>
+    </sys_ui_page>
+</record_update>
