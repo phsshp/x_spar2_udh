@@ -16,7 +16,7 @@ UpdateSet.prototype = (function UpdateSet_proto(s) {
 	var TEST = gs.getProperty('x_maog_udh.UpdateHelper.test', 'false') == 'true';
 
 	p.initialize = function initialize(name, description, application) {
-		var timeStr, updateSetSysId, updateSetGr, glideUpdateSet, updateManager, updateCount;
+		var timeStr, updateSetId, updateSetGr, glideUpdateSet, updateManager, updateCount;
 
 		application = application || 'global';
 		name = name || 'UpdateHelper {0}';
@@ -34,10 +34,10 @@ UpdateSet.prototype = (function UpdateSet_proto(s) {
 			updateSetGr.setValue('description', description);
 			updateSetGr.setValue('state', 'in progress');
 			updateSetGr.insert();
-			updateSetSysId = updateSetGr.sys_id;
+			updateSetId = updateSetGr.sys_id;
 
 			glideUpdateSet = new GlideUpdateSet();
-			glideUpdateSet.set(updateSetSysId);
+			glideUpdateSet.set(updateSetId);
 
 			updateManager = new GlideUpdateManager2();
 			updateManager.initialize();
@@ -81,7 +81,7 @@ UpdateSet.prototype = (function UpdateSet_proto(s) {
 
 		this.complete = function complete() {
 			updateSetGr = new GlideRecord('sys_update_set');
-			if (updateSetGr.get(updateSetSysId)) {
+			if (updateSetGr.get(updateSetId)) {
 				updateSetGr.setValue('state', 'complete');
 				updateSetGr.update();
 			}
@@ -94,13 +94,13 @@ UpdateSet.prototype = (function UpdateSet_proto(s) {
         <sys_created_by>peter.smith</sys_created_by>
         <sys_created_on>2018-08-15 01:00:36</sys_created_on>
         <sys_id>2325fbafdb735b00d89b596e5e961902</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>UpdateSet</sys_name>
         <sys_package display_value="Update Helper" source="x_spar2_udh">9ba11e67dbbf1b00d89b596e5e961983</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Update Helper">9ba11e67dbbf1b00d89b596e5e961983</sys_scope>
         <sys_update_name>sys_script_include_2325fbafdb735b00d89b596e5e961902</sys_update_name>
         <sys_updated_by>peter.smith</sys_updated_by>
-        <sys_updated_on>2018-08-15 02:19:36</sys_updated_on>
+        <sys_updated_on>2018-08-15 02:43:22</sys_updated_on>
     </sys_script_include>
 </record_update>

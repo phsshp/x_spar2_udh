@@ -17,11 +17,11 @@ Table.prototype = (function Table_proto(s) {
 	p.initialize = function initialize(updateSet, tableName, filter) {
 
 		this.visitRecords = function visitRecords(recordFn, termFn) {
-			var sysIds;
+			var ids;
 
 			recordFn = recordFn || function() { };
 			termFn = termFn || function() { updateSet.reset(); };
-			sysIds = [];
+			ids = [];
 
 			var gr = new GlideRecord(tableName);
 			if (filter) {
@@ -30,10 +30,10 @@ Table.prototype = (function Table_proto(s) {
 			gr.query();
 			while (gr.next()) {
 				recordFn(gr);
-				sysIds.push(gr.getUniqueValue());
+				ids.push(gr.getUniqueValue());
 			}
 			termFn();
-			return sysIds;
+			return ids;
 		};
 
 		this.saveRecords = function saveRecords(recordFn, recordIds) {
@@ -62,7 +62,7 @@ Table.prototype = (function Table_proto(s) {
 			rGr.deleteMultiple();
 		};
 		
-		this.visitChildren = 		function visitChildren(childTable, parentRef, filter, recordFn) {
+		this.visitChildren = function visitChildren(childTable, parentRef, filter, recordFn) {
 			if (!recordFn) recordFn = function() { };
 			var parentED, parentTable;
 			var children = [];
@@ -86,7 +86,26 @@ Table.prototype = (function Table_proto(s) {
 			return children;
 		};
 
+		this.saveChildrenInTable = function saveChildrenInTable(childTable, parentRef, filter, recordFn) {
+			if (!recordFn) recordFn = function() { };
+			return visitChildren(childTable, filter, function(gr) {
+				recordFn(gr);
+				saveRecord(gr);
+			});
+		};
 
+		this.saveChildren = function saveChildren(children, childTable, parentRef, filter, recordFn) {
+			if (!recordFn) {
+				recordFn = function() { };
+			}
+			filter = (filter ? filter + '^' : '') + parentRef + 'IN' + children.join(',');
+			return visitRecords(childTable, filter, function(gr) {
+				recordFn(gr);
+				saveRecord(gr);
+			});
+		};
+		
+		
 
 	};
 
@@ -96,13 +115,13 @@ Table.prototype = (function Table_proto(s) {
         <sys_created_by>peter.smith</sys_created_by>
         <sys_created_on>2018-08-15 02:34:56</sys_created_on>
         <sys_id>a48f1cb7dbf35b00d89b596e5e96192f</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>Table</sys_name>
         <sys_package display_value="Update Helper" source="x_spar2_udh">9ba11e67dbbf1b00d89b596e5e961983</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Update Helper">9ba11e67dbbf1b00d89b596e5e961983</sys_scope>
         <sys_update_name>sys_script_include_a48f1cb7dbf35b00d89b596e5e96192f</sys_update_name>
         <sys_updated_by>peter.smith</sys_updated_by>
-        <sys_updated_on>2018-08-15 02:34:56</sys_updated_on>
+        <sys_updated_on>2018-08-15 02:42:43</sys_updated_on>
     </sys_script_include>
 </record_update>
