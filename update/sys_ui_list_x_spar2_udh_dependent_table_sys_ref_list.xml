@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="x_spar2_udh_dependent_table" version="2" view="sys_ref_list">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>name</element>
+            <list_id display_value="x_spar2_udh_dependent_table" element="NULL" name="x_spar2_udh_dependent_table" parent="NULL" relationship="NULL" sys_domain="global" view="5c962341dd2003003399d83d70be026c">92f33f6fdb735b00d89b596e5e96198f</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>peter.smith</sys_created_by>
+            <sys_created_on>2018-08-14 23:05:07</sys_created_on>
+            <sys_id>1af33f6fdb735b00d89b596e5e96198f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>peter.smith</sys_updated_by>
+            <sys_updated_on>2018-08-14 23:05:07</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>x_spar2_udh_dependent_table</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>peter.smith</sys_created_by>
+            <sys_created_on>2018-08-14 23:05:07</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>92f33f6fdb735b00d89b596e5e96198f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_spar2_udh_dependent_table</sys_name>
+            <sys_package display_value="Update Helper" source="x_spar2_udh">9ba11e67dbbf1b00d89b596e5e961983</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Update Helper">9ba11e67dbbf1b00d89b596e5e961983</sys_scope>
+            <sys_update_name>sys_ui_list_x_spar2_udh_dependent_table_sys_ref_list</sys_update_name>
+            <sys_updated_by>peter.smith</sys_updated_by>
+            <sys_updated_on>2018-08-14 23:05:07</sys_updated_on>
+            <sys_user/>
+            <view display_value="Reference List" name="sys_ref_list">5c962341dd2003003399d83d70be026c</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

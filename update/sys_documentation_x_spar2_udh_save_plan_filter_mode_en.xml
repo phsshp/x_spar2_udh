@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="filter_mode" label="Filter Mode" language="en" table="x_spar2_udh_save_plan">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>filter_mode</element>
+            <help/>
+            <hint/>
+            <label>Filter Mode</label>
+            <language>en</language>
+            <name>x_spar2_udh_save_plan</name>
+            <plural>Filter Modes</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>peter.smith</sys_created_by>
+            <sys_created_on>2018-08-15 01:02:24</sys_created_on>
+            <sys_id>e4de883fdbb35b00d89b596e5e9619b2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Filter Mode</sys_name>
+            <sys_package display_value="Update Helper" source="x_spar2_udh">9ba11e67dbbf1b00d89b596e5e961983</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Update Helper">9ba11e67dbbf1b00d89b596e5e961983</sys_scope>
+            <sys_update_name>sys_documentation_x_spar2_udh_save_plan_filter_mode_en</sys_update_name>
+            <sys_updated_by>peter.smith</sys_updated_by>
+            <sys_updated_on>2018-08-15 01:02:24</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

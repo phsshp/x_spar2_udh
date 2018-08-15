@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
     <element label="Save Plan" max_length="40" name="x_spar2_udh_save_plan" type="collection">
-        <element label="Active" max_length="40" name="active" type="boolean"/>
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
         <element label="Description" max_length="4000" name="description" type="string"/>
+        <element choice="3" default="1" label="Filter Mode" max_length="40" name="filter_mode" type="choice">
+            <choice>
+                <element hint="Use the list filter or list selections alone" label="List Filter/Selection Only" sequence="100" value="1"/>
+                <element hint="Add the Plan Filter to the List Filter/Selections" label="List Filter AND Plan Filter" sequence="200" value="2"/>
+                <element hint="Ignore the list and use this plan's filter" label="Plan Filter Only" sequence="300" value="3"/>
+            </choice>
+        </element>
         <element label="Name" max_length="100" name="name" type="string"/>
+        <element dependent="table" dependent_on_field="table" label="Plan Filter" max_length="4000" name="plan_filter" type="conditions" use_dependent_field="true"/>
         <element default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
         <element label="Table" max_length="80" name="table" type="table_name"/>
     </element>

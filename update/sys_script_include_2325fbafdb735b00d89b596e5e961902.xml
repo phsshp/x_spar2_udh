@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_spar2_udh.UpdateSet</api_name>
+        <client_callable>false</client_callable>
+        <description>Manages an update set.  The update set is created on construction.</description>
+        <name>UpdateSet</name>
+        <script><![CDATA[var UpdateSet = Class.create();
+UpdateSet.prototype = (function UpdateSet_proto(s) {
+	var p = {};
+	var TYPE = p.type = 'UpdateSet';
+
+	var log = gs;
+	var TEST = gs.getProperty('x_maog_udh.UpdateHelper.test', 'false') == 'true';
+
+	p.initialize = function initialize(name, description, application) {
+		var timeStr, updateSetSysId, updateSetGr, glideUpdateSet, updateManager, updateCount;
+
+		application = application || 'global';
+		name = name || 'UpdateHelper {0}';
+		description = description || 'Created by UpdateHelper';
+
+		timeStr = new GlideDateTime().getDisplayValueInternal().replace(':', '-');
+		name = gs.getMessage(name, timeStr);
+		recordCount = 0;
+
+		if (!TEST) {
+			updateSetGr = new GlideRecord('sys_update_set');
+			updateSetGr.initialize();
+			updateSetGr.setValue('name', name);
+			updateSetGr.setValue('application', application);
+			updateSetGr.setValue('description', description);
+			updateSetGr.setValue('state', 'in progress');
+			updateSetGr.insert();
+			updateSetSysId = updateSetGr.sys_id;
+
+			glideUpdateSet = new GlideUpdateSet();
+			glideUpdateSet.set(updateSetSysId);
+
+			updateManager = new GlideUpdateManager2();
+			updateManager.initialize();
+		}
+
+		this.wrapUpdater = function wrapUpdater(updateFn) {
+			return function() {
+				var oldUpdateSet = gs.getUser().getPreference('sys_update_set');
+				try {
+					updateFn(arguments);
+				} finally {
+
+					if (!TEST) {
+						gs.getUser().savePreference('sys_update_set', oldUpdateSet);
+					}
+				}
+			};
+		};
+
+		this.saveRecord = function saveRecord(rGr) {
+			var uniqueValue  = gr.getUniqueValue();
+			if (log.isDebugging()) {
+				var tableName    = gr.getTableName();
+				var displayValue = gr.getDisplayValue();
+
+				log.debug('SaveRecord({0} "{1}" {2})',
+						  rGr.getTableName(), rGr.getDisplayValue, rGr.getUniqueValue());
+			}
+			if (!TEST) {
+				updateManager.saveRecord(rGr);
+			}
+			updateCount++;
+			return uniqueValue;
+		};
+
+		this.reset = function reset() {
+			if (!TEST) {
+				updateManager.initialize();
+			}
+		};
+
+		this.complete = function complete() {
+			updateSetGr = new GlideRecord('sys_update_set');
+			if (updateSetGr.get(updateSetSysId)) {
+				updateSetGr.setValue('state', 'complete');
+				updateSetGr.update();
+			}
+		};
+	};
+
+	return p;
+})(UpdateSet);]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>peter.smith</sys_created_by>
+        <sys_created_on>2018-08-15 01:00:36</sys_created_on>
+        <sys_id>2325fbafdb735b00d89b596e5e961902</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>UpdateSet</sys_name>
+        <sys_package display_value="Update Helper" source="x_spar2_udh">9ba11e67dbbf1b00d89b596e5e961983</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Update Helper">9ba11e67dbbf1b00d89b596e5e961983</sys_scope>
+        <sys_update_name>sys_script_include_2325fbafdb735b00d89b596e5e961902</sys_update_name>
+        <sys_updated_by>peter.smith</sys_updated_by>
+        <sys_updated_on>2018-08-15 02:19:36</sys_updated_on>
+    </sys_script_include>
+</record_update>

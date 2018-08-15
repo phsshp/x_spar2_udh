@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_spar2_udh.Table</api_name>
+        <client_callable>false</client_callable>
+        <description>Manages update of one table.</description>
+        <name>Table</name>
+        <script><![CDATA[var Table = Class.create();
+Table.prototype = (function Table_proto(s) {
+	var p = {};
+	var TYPE = p.type = 'Table';
+
+	var log = gs;
+
+	p.initialize = function initialize(updateSet, tableName, filter) {
+
+		this.visitRecords = function visitRecords(recordFn, termFn) {
+			var sysIds;
+
+			recordFn = recordFn || function() { };
+			termFn = termFn || function() { updateSet.reset(); };
+			sysIds = [];
+
+			var gr = new GlideRecord(tableName);
+			if (filter) {
+				gr.addEncodedQuery(filter);
+			}
+			gr.query();
+			while (gr.next()) {
+				recordFn(gr);
+				sysIds.push(gr.getUniqueValue());
+			}
+			termFn();
+			return sysIds;
+		};
+
+		this.saveRecords = function saveRecords(recordFn, recordIds) {
+			var f = filter;
+
+			if (!recordFn) recordFn = function() { };
+			if (recordIds && recordIds.length > 0) {
+				f = (f ? f + '^' : '') + 'sys_idIN' + recordIds.join(',');
+			}
+			return visitRecords(
+				tableName, f,
+				function visitRecord(rGr) {
+					recordFn(rGr);
+					updateSet.saveRecord(rGr);
+				}
+			);
+		};
+
+		this.deleteMultiple = function deleteMultiple() {
+			var rGr = new GlideRecord(tableName);
+			if (filter) {
+				rGr.addEncodedQuery(filter);
+			}
+
+			rGr.query();
+			rGr.deleteMultiple();
+		};
+		
+		this.visitChildren = 		function visitChildren(childTable, parentRef, filter, recordFn) {
+			if (!recordFn) recordFn = function() { };
+			var parentED, parentTable;
+			var children = [];
+
+			var gr = new GlideRecord(childTable);
+			gr.initialize();
+			parentED = gr[parentRef].getED();
+			parentTable = parentED.getName();
+
+			gr = new GlideRecord(childTable);
+			if (filter) {
+				gr.addEncodedQuery(filter);
+			}
+
+			gr.query();
+
+			while (gr.next()) {
+				recordFn(gr);
+				children.push(gr.getUniqueValue());
+			}
+			return children;
+		};
+
+
+
+	};
+
+	return p;
+})(Table);]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>peter.smith</sys_created_by>
+        <sys_created_on>2018-08-15 02:34:56</sys_created_on>
+        <sys_id>a48f1cb7dbf35b00d89b596e5e96192f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Table</sys_name>
+        <sys_package display_value="Update Helper" source="x_spar2_udh">9ba11e67dbbf1b00d89b596e5e961983</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Update Helper">9ba11e67dbbf1b00d89b596e5e961983</sys_scope>
+        <sys_update_name>sys_script_include_a48f1cb7dbf35b00d89b596e5e96192f</sys_update_name>
+        <sys_updated_by>peter.smith</sys_updated_by>
+        <sys_updated_on>2018-08-15 02:34:56</sys_updated_on>
+    </sys_script_include>
+</record_update>
