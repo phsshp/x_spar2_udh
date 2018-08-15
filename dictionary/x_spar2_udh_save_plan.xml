@@ -14,5 +14,6 @@
         <element dependent="table" dependent_on_field="table" label="Plan Filter" max_length="4000" name="plan_filter" type="conditions" use_dependent_field="true"/>
         <element default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
         <element label="Table" max_length="80" name="table" type="table_name"/>
+        <element label="Update Set Name" max_length="100" name="update_set_name" type="string"/>
     </element>
 </database>

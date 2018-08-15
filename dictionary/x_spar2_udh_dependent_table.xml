@@ -2,6 +2,7 @@
 <database>
     <element extends="x_spar2_udh_save_plan" label="Dependent Table" max_length="40" name="x_spar2_udh_dependent_table" type="collection">
         <element dependent="table" dependent_on_field="table" label="Field" max_length="80" name="field" type="field_name" use_dependent_field="true"/>
+        <element default="100" label="Order" max_length="40" name="order" type="integer"/>
         <element dependent="x_spar2_udh_save_plan" dependent_on_field="x_spar2_udh_save_plan" label="Parent" max_length="32" name="parent" reference="x_spar2_udh_dependent_table" reference_qual="active=true^sys_class_name=x_spar2_udh_dependent_table^EQ" reference_qual_condition="active=true^sys_class_name=x_spar2_udh_dependent_table^EQ" type="reference" use_dependent_field="true"/>
         <element label="Plan" max_length="32" name="plan" reference="x_spar2_udh_save_plan" reference_qual="active=true^sys_class_name=x_spar2_udh_save_plan^EQ" reference_qual_condition="active=true^sys_class_name=x_spar2_udh_save_plan^EQ" type="reference"/>
         <index name="index">

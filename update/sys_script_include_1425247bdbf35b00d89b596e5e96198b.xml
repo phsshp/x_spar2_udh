@@ -17,8 +17,22 @@ Plan.prototype = (function Plan_proto(s) {
 	p.initialize = function initialize(planGr) {
 		var updateSet;
 
-		this.run = function run() {
-			var mode, filter, tableName, name, description, app, table;
+		function runDependents(planGr, ids) {
+			var depGr;
+			
+			depGr = new GlideRecord('x_spar2_udh_dependent_table');
+			depGr.addQuery('plan', planGr.getUniqueValue());
+			depGr.addNullQuery('parent');
+			depGr.orderBy('order');
+			depGr.query();
+			
+			while (depGr.next()) {
+				new Dependent(updateSet, depGr, planGr, ids).run();
+			}
+		} this.runDependents = runDependents;
+		
+		function run() {
+			var mode, filter, tableName, name, description, app, table, updateSetName, ids;
 			
 			// TODO: Set up List/Selection filter
 			filter = '';
@@ -30,12 +44,15 @@ Plan.prototype = (function Plan_proto(s) {
 			tableName = planGr.getValue('table');
 			name = planGr.getDisplayValue();
 			description = planGr.getValue('description');
+			updateSetName = planGr.getValue('update_set_name');
 			
-			updateSet = new UpdateSet(name, description, app);
+			updateSet = new global.UpdateSet2(updateSetName, description, app);
 			table = new Table(updateSet, tableName, filter);
-			table.saveRecords();
+			ids = table.saveRecords();
 			updateSet.reset();
-		};
+			
+			runDependents(planGr, ids);
+		} this.run = run;
 	};
 
 	return p;
@@ -44,13 +61,13 @@ Plan.prototype = (function Plan_proto(s) {
         <sys_created_by>peter.smith</sys_created_by>
         <sys_created_on>2018-08-15 02:48:15</sys_created_on>
         <sys_id>1425247bdbf35b00d89b596e5e96198b</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>Plan</sys_name>
         <sys_package display_value="Update Helper" source="x_spar2_udh">9ba11e67dbbf1b00d89b596e5e961983</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Update Helper">9ba11e67dbbf1b00d89b596e5e961983</sys_scope>
         <sys_update_name>sys_script_include_1425247bdbf35b00d89b596e5e96198b</sys_update_name>
         <sys_updated_by>peter.smith</sys_updated_by>
-        <sys_updated_on>2018-08-15 03:00:51</sys_updated_on>
+        <sys_updated_on>2018-08-15 04:32:08</sys_updated_on>
     </sys_script_include>
 </record_update>

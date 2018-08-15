@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_spar2_udh.Dependent</api_name>
+        <client_callable>false</client_callable>
+        <description>Executes a plan to save records by traversing the record configuration.</description>
+        <name>Dependent</name>
+        <script><![CDATA[var Dependent = Class.create();
+Dependent.prototype = (function Dependent_proto(s) {
+	var p = {};
+	var TYPE = p.type = 'Dependent';
+
+	var log = gs;
+
+	p.initialize = function initialize(updateSet, depGr, parentGr, parentIds) {
+
+		function runChildren(immediateParentGr, ids) {
+			var newDepGr;
+
+			newDepGr = new GlideRecord('x_spar2_udh_dependent_table');
+			newDepGr.addQuery('parent', immediateParentGr.getUniqueValue());
+			newDepGr.addNullQuery('plan');
+			newDepGr.orderBy('order');
+			newDepGr.query();
+
+			while (newDepGr.next()) {
+				new Dependent(updateSet, newDepGr, immediateParentGr, ids).run();
+			}
+		} this.runChildren = runChildren;
+
+		function run() {
+			var mode, filter, tableName, fieldName, table, ids;
+
+			// TODO: Set up List/Selection filter
+			filter = '';
+
+			mode = depGr.getValue('filter_mode');
+			tableName = depGr.getValue('table');
+			fieldName = depGr.getValue('field');
+
+			if (filter) filter = filter + '^';
+			if (parentIds && parentIds.length) {
+				filter = filter + fieldName + 'IN' + parentIds.join(',');
+			}
+			if (mode == 2 || mode == 3) {
+				filter = (filter ? filter + '^' : '') + depGr.getValue('plan_filter');
+			}
+
+			table = new Table(updateSet, tableName, filter);
+			ids = table.saveRecords();
+			updateSet.reset();
+
+			runChildren(depGr, ids);
+		} this.run = run;
+	};
+
+	return p;
+})(Dependent);]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>peter.smith</sys_created_by>
+        <sys_created_on>2018-08-15 03:57:30</sys_created_on>
+        <sys_id>91e6bc37db375b00d89b596e5e9619b7</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Dependent</sys_name>
+        <sys_package display_value="Update Helper" source="x_spar2_udh">9ba11e67dbbf1b00d89b596e5e961983</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Update Helper">9ba11e67dbbf1b00d89b596e5e961983</sys_scope>
+        <sys_update_name>sys_script_include_91e6bc37db375b00d89b596e5e9619b7</sys_update_name>
+        <sys_updated_by>peter.smith</sys_updated_by>
+        <sys_updated_on>2018-08-15 04:34:29</sys_updated_on>
+    </sys_script_include>
+</record_update>

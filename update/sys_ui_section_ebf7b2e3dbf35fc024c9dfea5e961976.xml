@@ -113,6 +113,20 @@
             <sys_user/>
             <type/>
         </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>update_set_name</element>
+            <position>8</position>
+            <sys_created_by>peter.smith</sys_created_by>
+            <sys_created_on>2018-08-15 03:48:12</sys_created_on>
+            <sys_id>01c43cf3db375b00d89b596e5e96196a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_spar2_udh_save_plan" sys_domain="global" view="Default view">ebf7b2e3dbf35fc024c9dfea5e961976</sys_ui_section>
+            <sys_updated_by>peter.smith</sys_updated_by>
+            <sys_updated_on>2018-08-15 03:48:12</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption/>
             <header>false</header>
