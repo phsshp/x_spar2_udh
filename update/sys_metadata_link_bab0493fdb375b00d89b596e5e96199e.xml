@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>update</directory>
+        <documentkey>ac23776fdb735b00d89b596e5e9619db</documentkey>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_spar2_udh_save_plan">
+    <x_spar2_udh_save_plan action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>Save selected or filtered users along with their related configuration.</description>
+        <filter_mode>3</filter_mode>
+        <name>Users</name>
+        <plan_filter table="sys_user">active=true^emailNOT LIKE@example.com^emailNOT LIKE@servicenow.com^emailNOT LIKE@now.com^EQ<item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="true"/>
+            <item endquery="false" field="email" goto="false" newquery="false" operator="NOT LIKE" or="false" value="@example.com"/>
+            <item endquery="false" field="email" goto="false" newquery="false" operator="NOT LIKE" or="false" value="@servicenow.com"/>
+            <item endquery="false" field="email" goto="false" newquery="false" operator="NOT LIKE" or="false" value="@now.com"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </plan_filter>
+        <sys_class_name>x_spar2_udh_save_plan</sys_class_name>
+        <sys_created_by>peter.smith</sys_created_by>
+        <sys_created_on>2018-08-14 23:03:46</sys_created_on>
+        <sys_id>ac23776fdb735b00d89b596e5e9619db</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>peter.smith</sys_updated_by>
+        <sys_updated_on>2018-08-15 03:50:10</sys_updated_on>
+        <table>sys_user</table>
+        <update_set_name>Users {0}</update_set_name>
+    </x_spar2_udh_save_plan>
+</record_update>
+]]></payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>peter.smith</sys_created_by>
+        <sys_created_on>2018-08-15 04:40:28</sys_created_on>
+        <sys_id>bab0493fdb375b00d89b596e5e96199e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Users</sys_name>
+        <sys_package display_value="Update Helper" source="x_spar2_udh">9ba11e67dbbf1b00d89b596e5e961983</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Update Helper">9ba11e67dbbf1b00d89b596e5e961983</sys_scope>
+        <sys_update_name>sys_metadata_link_bab0493fdb375b00d89b596e5e96199e</sys_update_name>
+        <sys_updated_by>peter.smith</sys_updated_by>
+        <sys_updated_on>2018-08-15 04:40:28</sys_updated_on>
+        <tablename>x_spar2_udh_save_plan</tablename>
+    </sys_metadata_link>
+</record_update>

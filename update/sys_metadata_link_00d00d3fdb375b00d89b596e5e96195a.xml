@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>update</directory>
+        <documentkey>a97c703bdb375b00d89b596e5e9619ad</documentkey>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_spar2_udh_dependent_table">
+    <x_spar2_udh_dependent_table action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description/>
+        <field>sys_user</field>
+        <filter_mode>1</filter_mode>
+        <name>UI List</name>
+        <order>100</order>
+        <parent/>
+        <plan display_value="Users">ac23776fdb735b00d89b596e5e9619db</plan>
+        <plan_filter/>
+        <sys_class_name>x_spar2_udh_dependent_table</sys_class_name>
+        <sys_created_by>peter.smith</sys_created_by>
+        <sys_created_on>2018-08-15 04:22:34</sys_created_on>
+        <sys_id>a97c703bdb375b00d89b596e5e9619ad</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>peter.smith</sys_updated_by>
+        <sys_updated_on>2018-08-15 04:22:34</sys_updated_on>
+        <table>sys_ui_list</table>
+        <update_set_name/>
+    </x_spar2_udh_dependent_table>
+</record_update>
+]]></payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>peter.smith</sys_created_by>
+        <sys_created_on>2018-08-15 04:40:50</sys_created_on>
+        <sys_id>00d00d3fdb375b00d89b596e5e96195a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>UI List</sys_name>
+        <sys_package display_value="Update Helper" source="x_spar2_udh">9ba11e67dbbf1b00d89b596e5e961983</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Update Helper">9ba11e67dbbf1b00d89b596e5e961983</sys_scope>
+        <sys_update_name>sys_metadata_link_00d00d3fdb375b00d89b596e5e96195a</sys_update_name>
+        <sys_updated_by>peter.smith</sys_updated_by>
+        <sys_updated_on>2018-08-15 04:40:50</sys_updated_on>
+        <tablename>x_spar2_udh_dependent_table</tablename>
+    </sys_metadata_link>
+</record_update>
